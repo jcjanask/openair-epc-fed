@@ -44,7 +44,7 @@ services:
         volumes:
             - ~/.aws:/root/.aws
         environment:
-            TZ: UTC
+            TZ: Europe/Paris
             REALM: openairinterface.org
             HSS_FQDN: hss.openairinterface.org
             PREFIX: /openair-hss/etc
@@ -83,10 +83,6 @@ services:
         hostname: mme
         privileged: true
         depends_on: [oai_hss, redis]
-        ports:
-          - "3870:3870/tcp"
-          - "2123:2123/udp"
-          - "5870:5870/tcp"
         networks:
             public_net:
                 ipv4_address: 192.168.61.149
